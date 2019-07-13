@@ -6,22 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AtvdShop.Model.Model
+namespace AtvdShop.Model.Models
 {
-    [Table("SystemConfigs")]
-    public class SystemConfig
+    [Table("Tags")]
+    public class Tag
     {
         [Key]
-        public int ID { get; set; }
+        [MaxLength(50)]
+        [Column(TypeName = "varchar")]
+        public string ID { get; set; }
 
         [Required]
-        [Column(TypeName = "varchar")]
         [MaxLength(50)]
-        public string Code { get; set; }
-
+        public string Name { get; set; }
+        
+        [Required]
         [MaxLength(50)]
-        public string ValueString { get; set; }
-
-        public int? ValueInt { get; set; }
+        public string Type { get; set; }
     }
 }

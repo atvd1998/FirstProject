@@ -6,24 +6,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AtvdShop.Model.Model
+namespace AtvdShop.Model.Models
 {
-    [Table("ProductTags")]
-    public class ProductTag
+    [Table("OrderDetails")]
+    public class OrderDetail
     {
         [Key]
         [Column(Order = 1)]
-        public int ProductID { get; set; }
+        public int OrderID { get; set; }
 
         [Key]
-        [Column(TypeName = "varchar", Order = 2)]
-        [MaxLength(50)]
-        public string TagID { get; set; }
+        [Column(Order = 2)]
+        public int ProductID { get; set; }
+
+        public int Quanity { get; set; }
+
+        [ForeignKey("OrderID")]
+        public virtual Order Order { set; get; }
 
         [ForeignKey("ProductID")]
         public virtual Product Product { set; get; }
 
-        [ForeignKey("TagID")]
-        public virtual Tag Tag { set; get; }
     }
 }

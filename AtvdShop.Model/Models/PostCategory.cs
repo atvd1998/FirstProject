@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AtvdShop.Model.Abstract;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace AtvdShop.Model.Model
+namespace AtvdShop.Model.Models
 {
-    [Table("ProductCategories")]
-    public class ProductCategory
+    [Table("PostCategories")]
+    public class PostCategory : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -21,6 +20,7 @@ namespace AtvdShop.Model.Model
         public string Name { get; set; }
 
         [Required]
+        [Column(TypeName = "varchar")]
         [MaxLength(256)]
         public string Alias { get; set; }
 
@@ -28,11 +28,13 @@ namespace AtvdShop.Model.Model
         public string Description { get; set; }
 
         public int? ParentID { get; set; }
-        public int? DisplayOrder { get; set; }
+        public int? DislayOrder { get; set; }
 
         [MaxLength(256)]
         public string Image { get; set; }
+
         public bool? HomeFlag { get; set; }
-        public virtual IEnumerable<Product> Products { set; get; }
+
+        public virtual IEnumerable<Post> Posts { set; get; }
     }
 }

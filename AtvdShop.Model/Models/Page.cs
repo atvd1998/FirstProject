@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AtvdShop.Model.Abstract;
-namespace AtvdShop.Model.Model
+
+namespace AtvdShop.Model.Models
 {
-    [Table("PostCategories")]
-    public class PostCategory : Auditable
+    [Table("Pages")]
+    public class Page : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -19,22 +20,11 @@ namespace AtvdShop.Model.Model
         [MaxLength(256)]
         public string Name { get; set; }
 
-        [Required]
         [Column(TypeName = "varchar")]
+        [Required]
         [MaxLength(256)]
         public string Alias { get; set; }
 
-        [MaxLength(500)]
-        public string Description { get; set; }
-
-        public int? ParentID { get; set; }
-        public int? DislayOrder { get; set; }
-
-        [MaxLength(256)]
-        public string Image { get; set; }
-
-        public bool? HomeFlag { get; set; }
-
-        public virtual IEnumerable<Post> Posts { set; get; }
+        public string Content { get; set; }
     }
 }

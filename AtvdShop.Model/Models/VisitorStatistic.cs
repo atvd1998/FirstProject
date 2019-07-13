@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AtvdShop.Model.Model
+namespace AtvdShop.Model.Models
 {
     [Table("VisitorStatistics")]
     public class VisitorStatistic

@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using AtvdShop.Model.Abstract;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
-namespace AtvdShop.Model.Model
+namespace AtvdShop.Model.Models
 {
-    [Table("Posts")]
-    public class Post : Auditable
+    [Table("Products")]
+    public class Product : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -30,17 +31,24 @@ namespace AtvdShop.Model.Model
         [MaxLength(256)]
         public string Image { get; set; }
 
-        [MaxLength(256)]
+        [Column(TypeName = "xml")]
+        public string MoreImages { get; set; }
+        public decimal Price { get; set; }
+
+        public decimal? PromotionPrice { get; set; }
+        public int? Warranty { get; set; }
+
+        [MaxLength(500)]
         public string Description { get; set; }
 
+        [Required]
         [MaxLength(256)]
         public string Content { get; set; }
-
         public bool? HomeFlag { get; set; }
         public bool? HotFlag { get; set; }
         public int? ViewCount { get; set; }
 
         [ForeignKey("CategoryID")]
-        public virtual PostCategory PostCategory { set; get; }
+        public virtual ProductCategory ProductCategory { set; get; }
     }
 }

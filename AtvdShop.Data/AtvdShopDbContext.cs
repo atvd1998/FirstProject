@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AtvdShop.Model.Model;
+using AtvdShop.Model.Models;
 namespace AtvdShop.Data
 {
     public class AtvdShopDbContext : DbContext

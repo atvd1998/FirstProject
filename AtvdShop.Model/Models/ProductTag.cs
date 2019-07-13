@@ -6,22 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AtvdShop.Model.Model
+namespace AtvdShop.Model.Models
 {
-    [Table("PostTag")]
-    public class PostTag
+    [Table("ProductTags")]
+    public class ProductTag
     {
         [Key]
         [Column(Order = 1)]
-        public int PostID { get; set; }
+        public int ProductID { get; set; }
 
         [Key]
         [Column(TypeName = "varchar", Order = 2)]
         [MaxLength(50)]
         public string TagID { get; set; }
 
-        [ForeignKey("PostID")]
-        public virtual Post Post { set; get; }
+        [ForeignKey("ProductID")]
+        public virtual Product Product { set; get; }
 
         [ForeignKey("TagID")]
         public virtual Tag Tag { set; get; }

@@ -6,19 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AtvdShop.Model.Model
+namespace AtvdShop.Model.Models
 {
-    [Table("MenuGroups")]
-    public class MenuGroup
+    [Table("SystemConfigs")]
+    public class SystemConfig
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
         [Required]
+        [Column(TypeName = "varchar")]
         [MaxLength(50)]
-        public string Name { get; set; }
+        public string Code { get; set; }
 
-        public virtual IEnumerable<Menu> Menus { set; get; }
+        [MaxLength(50)]
+        public string ValueString { get; set; }
+
+        public int? ValueInt { get; set; }
     }
 }
