@@ -12,9 +12,11 @@ namespace AtvdShop.Model.Model
     public class OrderDetail
     {
         [Key]
-        public int OderID { get; set; }
+        [Column(Order = 1)]
+        public int OrderID { get; set; }
 
         [Key]
+        [Column(Order = 2)]
         public int ProductID { get; set; }
 
         public int Quanity { get; set; }
