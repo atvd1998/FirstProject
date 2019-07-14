@@ -8,7 +8,7 @@ using AtvdShop.Model.Models;
 
 namespace AtvdShop.Data.Repositories
 {
-    public interface IVisitorStatisticRepository
+    public interface IVisitorStatisticRepository : IRepository<VisitorStatistic>
     {
 
     }

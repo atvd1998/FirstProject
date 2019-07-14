@@ -8,7 +8,7 @@ using AtvdShop.Model.Models;
 
 namespace AtvdShop.Data.Repositories
 {
-    public interface IProductTagRepository
+    public interface IProductTagRepository : IRepository<ProductTag>
     {
 
     }

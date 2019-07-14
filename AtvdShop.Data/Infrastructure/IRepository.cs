@@ -15,9 +15,11 @@ namespace AtvdShop.Data.Infrastructure
 
         void Delete(T entity);
 
+        void Delete(int id);
+
         void DeleteMulti(Expression<Func<T, bool>> where);
 
-        T GetSingleID(int id);
+        T GetSingleByID(int id);
 
         T GetSingleByCondition(Expression<Func<T, bool>> expression, string[] includes = null);
 

@@ -45,6 +45,11 @@ namespace AtvdShop.Data.Infrastructure
         {
             dbSet.Remove(entity);
         }
+        public virtual void Delete(int id)
+        {
+            var entity = dbSet.Find(id);
+            dbSet.Remove(entity);
+        }
         public virtual void DeleteMulti(Expression<Func<T, bool>> where)
         {
             IEnumerable<T> objects = dbSet.Where<T>(where).AsEnumerable();
@@ -53,7 +58,7 @@ namespace AtvdShop.Data.Infrastructure
                 dbSet.Remove(obj);
             }
         }
-        public virtual T GetSingleID(int id)
+        public virtual T GetSingleByID(int id)
         {
             return dbSet.Find(id);
         }
